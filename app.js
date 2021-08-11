@@ -9,6 +9,11 @@ const port = process.env.PORT
 
 app.get('/', async (req, res) => {
   const plainLinkData =  await plaidService.createLinkToken()
+  res.set({
+    "Access-Control-Allow-Headers" : "Content-Type",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET"
+  })
   res.send(plainLinkData)
 })
 
