@@ -1,12 +1,15 @@
 const express = require('express')
 
-require('dotenv').config();
+require('dotenv').config()
+
+const plaidService = require('./services/plaidService')
 
 const app = express()
 const port = process.env.PORT
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+app.get('/', async (req, res) => {
+  const plainLinkData =  await plaidService.createLinkToken()
+  res.send(plainLinkData)
 })
 
 app.listen(port, () => {
