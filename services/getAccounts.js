@@ -8,20 +8,18 @@ const expressPino = require('express-pino-logger')({
 
 const logger = expressPino.logger
 
-
 const client = new plaid.Client({
     clientID: process.env.PLAID_CLIENT_ID,
     secret: process.env.PLAID_CLIENT_SECRET,
     env: plaid.environments.sandbox,
 })
 
-const getAccessToken = async (publicToken) => {
-    try {
-        const response = await client.exchangePublicToken(publicToken)
-        return response
-    } catch (error) {
-        return error
-    }
+const getAccounts = async (accessToken) => {
+    access = accessToken.access_token
+    logger.info(access)
+    const accounts = await client.getAccounts(access)
+    logger.info(accounts)
+    return accounts
 }
 
-module.exports = { getAccessToken }
+module.exports = { getAccounts }

@@ -13,6 +13,7 @@ require('dotenv').config()
 
 const { createLinkToken } = require('./services/linkToken')
 const { getAccessToken } = require('./services/accessToken')
+const { getAccounts } = require('./services/getAccounts')
 
 const app = express()
 const port = process.env.PORT
@@ -30,14 +31,16 @@ app.get('/', async (req, res) => {
 app.post('/access-token', async (req, res) => {
   try {
     const publicToken = req.body.publicToken
-    logger.info(publicToken)
     const accessToken = await getAccessToken(publicToken)
-    res.send(accessToken)
+    const accounts = getAccounts(accessToken)
+    logger.info(accounts)
+    res.send(accounts)
   } catch (error) {
+    logger.info("Error")
     res.send(error)
   }
-
 })
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
