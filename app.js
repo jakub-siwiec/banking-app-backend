@@ -1,19 +1,11 @@
 const express = require('express')
 const cors = require('cors')
 
-const basicPino = require('pino')
-const basicPinoLogger = basicPino({ prettyPrint: true })
-const expressPino = require('express-pino-logger')({
-  logger: basicPinoLogger
-})
-
-const logger = expressPino.logger
-
 require('dotenv').config()
 
-const { createLinkToken } = require('./subscribers/linkToken')
-const { getAccessToken } = require('./subscribers/accessToken')
-const { getAccounts } = require('./subscribers/getAccounts')
+const { createLinkToken } = require('./subscribers/plaidAuth/linkToken')
+const { getAccessToken } = require('./subscribers/plaidAuth/accessToken')
+const { getAccounts } = require('./subscribers/plaidEndpoints/getAccounts')
 
 const app = express()
 const port = process.env.PORT
@@ -23,20 +15,19 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 app.get('/', async (req, res) => {
-  const plainLinkData =  await createLinkToken()
-  logger.info(plainLinkData)
-  res.send(plainLinkData)
+  try {
+    const plainLinkData =  await createLinkToken()
+    res.send(plainLinkData)
+  } catch (error) {
+    res.send(error)
+  }
 })
 
 app.post('/access-token', async (req, res) => {
   try {
-    const publicToken = req.body.publicToken
-    const accessToken = await getAccessToken(publicToken)
-    const accounts = getAccounts(accessToken)
-    logger.info(accounts)
-    res.send(accounts)
+    const accessToken = await getAccessToken(req.body.publicToken)
+    res.send(accessToken)
   } catch (error) {
-    logger.info("Error")
     res.send(error)
   }
 })

@@ -1,6 +1,4 @@
-const plaidClient = require('../libs/PlaidClient')
-const logger = require('../libs/Logger')
-
+const plaidClient = require('../../libs/PlaidClient')
 
 
 const createLinkToken = async () => {
@@ -16,7 +14,6 @@ const createLinkToken = async () => {
             language: 'en',
             webhook: 'https://webhook.sample.com',
         })
-        logger.info(typeof(logger))
         return tokenResponse
 
     } catch (err) {

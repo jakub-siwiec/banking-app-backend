@@ -1,4 +1,4 @@
-const plaidClient = require('../libs/PlaidClient')
+const plaidClient = require('../../libs/PlaidClient')
 
 
 const getAccessToken = async (publicToken) => {
