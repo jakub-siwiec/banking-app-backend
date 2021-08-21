@@ -3,9 +3,13 @@ const cors = require('cors')
 
 require('dotenv').config()
 
+const logger = require('./libs/Logger')
+
 const { createLinkToken } = require('./subscribers/plaidAuth/linkToken')
 const { getAccessToken } = require('./subscribers/plaidAuth/accessToken')
-const { getAccounts } = require('./subscribers/plaidEndpoints/getAccounts')
+const { getAccounts } = require('./services/getAccounts')
+const { getItem } = require('./services/getItem')
+
 
 const app = express()
 const port = process.env.PORT
@@ -30,6 +34,25 @@ app.post('/access-token', async (req, res) => {
   } catch (error) {
     res.send(error)
   }
+})
+
+app.get('/accounts', async (req, res) => {
+  try {
+    const accounts = await getAccounts(req.headers.authorization)
+    res.send(accounts)
+  } catch (error) {
+    res.send(error)
+  }
+})
+
+app.get('/item', async (req, res) => {
+  try {
+    const item = await getItem(req.headers.authorization)
+    res.send(item)
+  } catch (error) {
+    res.send(error)
+  }
+
 })
 
 
