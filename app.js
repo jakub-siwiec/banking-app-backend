@@ -11,9 +11,9 @@ const logger = expressPino.logger
 
 require('dotenv').config()
 
-const { createLinkToken } = require('./services/linkToken')
-const { getAccessToken } = require('./services/accessToken')
-const { getAccounts } = require('./services/getAccounts')
+const { createLinkToken } = require('./subscribers/linkToken')
+const { getAccessToken } = require('./subscribers/accessToken')
+const { getAccounts } = require('./subscribers/getAccounts')
 
 const app = express()
 const port = process.env.PORT
