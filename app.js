@@ -10,6 +10,7 @@ const { getAccessToken } = require('./subscribers/plaidAuth/accessToken')
 const { getAccounts } = require('./services/getAccounts')
 const { getItem } = require('./services/getItem')
 const { getAuth } = require('./services/getAuth')
+const { getIdentity } = require('./services/getIdentity')
 
 
 const app = express()
@@ -60,6 +61,15 @@ app.get('/auth', async (req, res) => {
   try {
     const auth = await getAuth(req.headers.authorization)
     res.send(auth)
+  } catch (error) {
+    res.send(error)
+  }
+})
+
+app.get('/identity', async (req, res) => {
+  try {
+    const identity = await getIdentity(req.headers.authorization)
+    res.send(identity)
   } catch (error) {
     res.send(error)
   }
