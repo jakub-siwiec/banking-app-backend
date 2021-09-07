@@ -78,7 +78,7 @@ app.get('/identity', async (req, res) => {
 
 app.get('/transactions', async (req, res) => {
   try {
-    const transactions = await getTransactions(req.headers.authorization)
+    const transactions = await getTransactions(req.headers.authorization, '2018-11-09', '2021-09-07')
     res.send(transactions)
   } catch (error) {
     res.send(error)
