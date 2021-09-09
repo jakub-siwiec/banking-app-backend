@@ -12,6 +12,7 @@ const { getItem } = require('./services/getItem')
 const { getAuth } = require('./services/getAuth')
 const { getIdentity } = require('./services/getIdentity')
 const { getTransactions } = require('./services/getTransactions')
+const { getAccountTransactions } = require('./services/getAccountTransactions')
 
 
 const app = express()
@@ -84,6 +85,16 @@ app.get('/transactions', async (req, res) => {
     res.send(error)
   }
 })
+
+app.get('/transactions/:accountId', async (req, res) => {
+  try {
+    const accountTransactions = await getAccountTransactions(req.headers.authorization, '2018-11-09', '2021-09-07', req.params.accountId)
+    res.send(accountTransactions)
+  } catch (error) {
+    res.send(error)
+  }
+})
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
