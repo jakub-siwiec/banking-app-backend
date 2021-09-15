@@ -1,7 +1,5 @@
 const { getTransactions } = require('./getTransactions')
 
-const logger = require('../libs/Logger')
-
 const getAccountTransactions = async (bearerToken, startDate, endDate, accountId) => {
 
     const allTransactions = await getTransactions(bearerToken, startDate, endDate)

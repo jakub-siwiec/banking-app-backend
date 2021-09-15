@@ -13,6 +13,7 @@ const { getAuth } = require('./services/getAuth')
 const { getIdentity } = require('./services/getIdentity')
 const { getTransactions } = require('./services/getTransactions')
 const { getAccountTransactions } = require('./services/getAccountTransactions')
+const { getBalance } = require('./services/getBalance')
 
 
 const app = express()
@@ -89,6 +90,15 @@ app.get('/transactions', async (req, res) => {
 app.get('/transactions/:accountId', async (req, res) => {
   try {
     const accountTransactions = await getAccountTransactions(req.headers.authorization, '2018-11-09', '2021-09-07', req.params.accountId)
+    res.send(accountTransactions)
+  } catch (error) {
+    res.send(error)
+  }
+})
+
+app.get('/balance/:accountId', async (req, res) => {
+  try {
+    const accountTransactions = await getBalance(req.headers.authorization, req.params.accountId)
     res.send(accountTransactions)
   } catch (error) {
     res.send(error)
