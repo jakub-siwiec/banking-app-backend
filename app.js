@@ -9,6 +9,7 @@ const { createLinkToken } = require('./subscribers/plaidAuth/linkToken')
 const { getAccessToken } = require('./subscribers/plaidAuth/accessToken')
 const { getAccounts } = require('./services/getAccounts')
 const { getItem } = require('./services/getItem')
+const { getInstitution } = require('./services/getInstitution')
 const { getAuth } = require('./services/getAuth')
 const { getIdentity } = require('./services/getIdentity')
 const { getTransactions } = require('./services/getTransactions')
@@ -57,7 +58,15 @@ app.get('/item', async (req, res) => {
   } catch (error) {
     res.send(error)
   }
+})
 
+app.get('/institution', async (req, res) => {
+  try {
+    const institution = await getInstitution(req.headers.authorization)
+    res.send(institution)
+  } catch (error) {
+    res.send(error)
+  }
 })
 
 app.get('/auth', async (req, res) => {

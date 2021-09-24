@@ -4,7 +4,12 @@ const { bearerTokenExtractor } = require('../libs/bearerTokenExtractor')
 const getAuth = async (bearerToken) => {
     const accessToken = await bearerTokenExtractor(bearerToken)
     const auth = await getItemBankData(accessToken)
-    return auth
+    const auth_response = {
+        status_code: auth.status_code,
+        request_id: auth.request_id,
+        description: "Authorized"
+    }
+    return auth_response
 }
 
 
