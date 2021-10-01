@@ -7,6 +7,7 @@ const logger = require('./libs/Logger')
 
 const { createLinkToken } = require('./subscribers/plaidAuth/linkToken')
 const { getAccessToken } = require('./subscribers/plaidAuth/accessToken')
+const { deleteAccessToken } = require('./services/deleteAccessToken')
 const { getAccounts } = require('./services/getAccounts')
 const { getItem } = require('./services/getItem')
 const { getInstitution } = require('./services/getInstitution')
@@ -40,6 +41,16 @@ app.post('/access-token', async (req, res) => {
   } catch (error) {
     res.send(error)
   }
+})
+
+app.delete('/access-token', async (req, res) => {
+  try {
+    const response = await deleteAccessToken(req.headers.authorization)
+    res.send(response)
+  } catch (error) {
+    res.send(error)
+  }
+
 })
 
 app.get('/accounts', async (req, res) => {

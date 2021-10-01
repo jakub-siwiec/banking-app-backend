@@ -10,5 +10,13 @@ const getAccessToken = async (publicToken) => {
     }
 }
 
+const deleteCurrentAccessToken = async (accessToken) => {
+    try {
+        const response = await plaidClient.invalidateAccessToken(accessToken)
+        return response
+    } catch (error) {
+        return error
+    }
+}
 
-module.exports = { getAccessToken }
+module.exports = { getAccessToken, deleteCurrentAccessToken }
