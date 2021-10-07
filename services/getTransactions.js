@@ -1,7 +1,8 @@
 const moment = require('moment')
 
-const { getAccountTransactions } = require('../subscribers/plaidEndpoints/transactions')
 const { bearerTokenExtractor } = require('../libs/bearerTokenExtractor')
+
+const { getAccountTransactions } = require('../subscribers/plaidEndpoints/transactions')
 
 
 const getTransactions = async (bearerToken, startDate, endDate) => {

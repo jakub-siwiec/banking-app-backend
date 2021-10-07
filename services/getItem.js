@@ -1,5 +1,6 @@
-const { getAccessItem } = require('../subscribers/plaidEndpoints/item')
 const { bearerTokenExtractor } = require('../libs/bearerTokenExtractor')
+
+const { getAccessItem } = require('../subscribers/plaidEndpoints/item')
 
 
 const getItem = async (bearerToken) => {

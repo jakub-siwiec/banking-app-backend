@@ -1,5 +1,7 @@
-const { getItemBankData } = require('../subscribers/plaidEndpoints/auth')
 const { bearerTokenExtractor } = require('../libs/bearerTokenExtractor')
+
+const { getItemBankData } = require('../subscribers/plaidEndpoints/auth')
+
 
 const getAuth = async (bearerToken) => {
     const accessToken = await bearerTokenExtractor(bearerToken)

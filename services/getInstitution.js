@@ -1,7 +1,6 @@
 const { getInstitutionById } = require('../subscribers/plaidEndpoints/institution')
 const { getItem } = require('./getItem')
 
-const logger = require('../libs/Logger')
 
 const getInstitution = async (bearerToken) => {
     const item = await getItem(bearerToken)

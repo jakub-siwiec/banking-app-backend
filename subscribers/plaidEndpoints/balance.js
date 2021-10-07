@@ -6,4 +6,5 @@ const getAccountBalance = async (accessToken, account_ids) => {
     return auth
 }
 
+
 module.exports = { getAccountBalance }

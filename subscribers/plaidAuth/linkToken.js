@@ -3,7 +3,6 @@ const plaidClient = require('../../libs/PlaidClient')
 
 const createLinkToken = async () => {
     try {
-
         const tokenResponse = await plaidClient.createLinkToken({
             user: {
                 client_user_id: "1",
@@ -15,7 +14,6 @@ const createLinkToken = async () => {
             webhook: 'https://webhook.sample.com',
         })
         return tokenResponse
-
     } catch (err) {
         return { error: err.message }
     }

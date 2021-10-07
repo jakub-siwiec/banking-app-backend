@@ -6,4 +6,5 @@ const getInstitutionById = async (institutionId) => {
     return institution
 }
 
+
 module.exports = { getInstitutionById }
