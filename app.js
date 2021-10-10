@@ -28,7 +28,8 @@ app.get('/', async (req, res) => {
     const plainLinkData =  await createLinkToken()
     res.send(plainLinkData)
   } catch (error) {
-    res.send(error)
+    logger.error(error.stack)
+    res.send(error.type)
   }
 })
 
