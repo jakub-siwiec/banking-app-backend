@@ -1,16 +1,18 @@
+const ProgrammingCustomError = require('../libs/ProgrammingCustomError')
 const PlaidError = require('../libs/PlaidError')
 
 const errorHandler = (err, req, res, next) => {
     try {
         if (err.name === 'PlaidError') {
-            const plaidError = new PlaidError(err)
-            res.status(plaidError.status)
-            res.send(plaidError.response())
+            const plaidError = new PlaidError()
+            plaidError.apiResponse(res)
         } else {
-            res.send(err.name)
+            const programmingCustomError = new ProgrammingCustomError(err)
+            programmingCustomError.apiResponse(res)
         }    
     } catch (error) {
-        res.status(500).send("Something went wrong")
+        const programmingCustomError = new ProgrammingCustomError(error)
+        programmingCustomError.apiResponse(res)
     }
 }   
 
