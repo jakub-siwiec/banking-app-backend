@@ -1,10 +1,7 @@
-const { bearerTokenExtractor } = require('../libs/bearerTokenExtractor')
-
 const { getItemBankData } = require('../subscribers/plaidEndpoints/auth')
 
 
-const getAuth = async (bearerToken) => {
-    const accessToken = await bearerTokenExtractor(bearerToken)
+const getAuth = async (accessToken) => {
     const auth = await getItemBankData(accessToken)
     const auth_response = {
         status_code: auth.status_code,

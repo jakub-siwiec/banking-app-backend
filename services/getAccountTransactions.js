@@ -1,8 +1,8 @@
 const { getTransactions } = require('./getTransactions')
 
 
-const getAccountTransactions = async (bearerToken, startDate, endDate, accountId) => {
-    const allTransactions = await getTransactions(bearerToken, startDate, endDate)
+const getAccountTransactions = async (accessToken, startDate, endDate, accountId) => {
+    const allTransactions = await getTransactions(accessToken, startDate, endDate)
 
     if (!allTransactions.transactions) {
         return allTransactions

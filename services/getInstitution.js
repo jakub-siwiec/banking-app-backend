@@ -2,8 +2,8 @@ const { getInstitutionById } = require('../subscribers/plaidEndpoints/institutio
 const { getItem } = require('./getItem')
 
 
-const getInstitution = async (bearerToken) => {
-    const item = await getItem(bearerToken)
+const getInstitution = async (accessToken) => {
+    const item = await getItem(accessToken)
     if (!item.item || !item.item.institution_id) {
         return null
     }

@@ -1,10 +1,7 @@
-const { bearerTokenExtractor } = require('../libs/bearerTokenExtractor')
-
 const { getAccountBalance } = require('../subscribers/plaidEndpoints/balance')
 
 
-const getBalance = async (bearerToken, accountId) => {
-    const accessToken = await bearerTokenExtractor(bearerToken)
+const getBalance = async (accessToken, accountId) => {
     const auth = await getAccountBalance(accessToken, [accountId])
     return auth
 }
