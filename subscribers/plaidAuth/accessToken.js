@@ -2,12 +2,12 @@ const plaidClient = require('../../libs/PlaidClient')
 
 
 const getAccessToken = async (publicToken) => {
-    try {
+    // try {
         const response = await plaidClient.exchangePublicToken(publicToken)
         return response
-    } catch (error) {
-        return error
-    }
+    // } catch (error) {
+    //     return error
+    // }
 }
 
 const deleteCurrentAccessToken = async (accessToken) => {

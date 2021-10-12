@@ -16,16 +16,17 @@ router.get('/', async (req, res) => {
       const plainLinkData =  await createLinkToken()
       res.send(plainLinkData)
     } catch (error) {
-      res.send(error)  
+        console.log(error.code)
+      res.status(500).send(error.statusCode)
     }
   })
   
-router.post('/access-token', async (req, res) => {
+router.post('/access-token', async (req, res, next) => {
 try {
     const accessToken = await getAccessToken(req.body.publicToken)
     res.send(accessToken)
 } catch (error) {
-    res.send(error)
+    next(error)
 }
 })
 
