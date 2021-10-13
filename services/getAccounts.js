@@ -1,4 +1,4 @@
-const { getItemAccounts } = require('../subscribers/plaidEndpoints/accounts')
+const getItemAccounts = require('../subscribers/plaidEndpoints/accounts')
 
 
 const getAccounts = async (accessToken) => {
@@ -7,4 +7,4 @@ const getAccounts = async (accessToken) => {
 }
 
 
-module.exports = { getAccounts }
+module.exports = getAccounts

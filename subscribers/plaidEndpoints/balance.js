@@ -7,4 +7,4 @@ const getAccountBalance = async (accessToken, account_ids) => {
 }
 
 
-module.exports = { getAccountBalance }
+module.exports = getAccountBalance

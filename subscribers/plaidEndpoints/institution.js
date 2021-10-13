@@ -7,4 +7,4 @@ const getInstitutionById = async (institutionId) => {
 }
 
 
-module.exports = { getInstitutionById }
+module.exports = getInstitutionById

@@ -7,4 +7,4 @@ const getAccountTransactions = async (accessToken, startDate, endDate) => {
 }
 
 
-module.exports = { getAccountTransactions }
+module.exports = getAccountTransactions

@@ -7,4 +7,4 @@ const getAccessItem = async (accessToken) => {
 }
 
 
-module.exports = { getAccessItem }
+module.exports = getAccessItem

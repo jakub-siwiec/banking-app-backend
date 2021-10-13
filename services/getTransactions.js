@@ -1,6 +1,6 @@
 const moment = require('moment')
 
-const { getAccountTransactions } = require('../subscribers/plaidEndpoints/transactions')
+const getAccountTransactions = require('../subscribers/plaidEndpoints/transactions')
 
 
 const getTransactions = async (accessToken, startDate, endDate) => {
@@ -16,4 +16,4 @@ const getTransactions = async (accessToken, startDate, endDate) => {
 }
 
 
-module.exports = { getTransactions }
+module.exports = getTransactions

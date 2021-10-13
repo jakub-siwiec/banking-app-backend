@@ -3,14 +3,14 @@ const router = express.Router()
 
 const bearerTokenHandler = require('../middleware/bearerTokenHandler')
 
-const { createLinkToken } = require('../subscribers/plaidAuth/linkToken')
+const createLinkToken = require('../subscribers/plaidAuth/linkToken')
 const { getAccessToken } = require('../subscribers/plaidAuth/accessToken')
-const { deleteAccessToken } = require('../services/deleteAccessToken')
-const { getAccounts } = require('../services/getAccounts')
-const { getInstitution } = require('../services/getInstitution')
-const { getAuth } = require('../services/getAuth')
-const { getAccountTransactions } = require('../services/getAccountTransactions')
-const { getBalance } = require('../services/getBalance')
+const deleteAccessToken = require('../services/deleteAccessToken')
+const getAccounts = require('../services/getAccounts')
+const getInstitution = require('../services/getInstitution')
+const getAuth = require('../services/getAuth')
+const getAccountTransactions = require('../services/getAccountTransactions')
+const getBalance = require('../services/getBalance')
 
 
 router.get('/', 

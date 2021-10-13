@@ -1,4 +1,4 @@
-const { getTransactions } = require('./getTransactions')
+const getTransactions = require('./getTransactions')
 
 
 const getAccountTransactions = async (accessToken, startDate, endDate, accountId) => {
@@ -14,4 +14,4 @@ const getAccountTransactions = async (accessToken, startDate, endDate, accountId
 }
 
 
-module.exports = { getAccountTransactions }
+module.exports = getAccountTransactions

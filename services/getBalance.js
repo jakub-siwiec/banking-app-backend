@@ -1,4 +1,4 @@
-const { getAccountBalance } = require('../subscribers/plaidEndpoints/balance')
+const getAccountBalance = require('../subscribers/plaidEndpoints/balance')
 
 
 const getBalance = async (accessToken, accountId) => {
@@ -7,4 +7,4 @@ const getBalance = async (accessToken, accountId) => {
 }
 
 
-module.exports = { getBalance }
+module.exports = getBalance

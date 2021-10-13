@@ -1,5 +1,5 @@
-const { getInstitutionById } = require('../subscribers/plaidEndpoints/institution')
-const { getItem } = require('./getItem')
+const getInstitutionById = require('../subscribers/plaidEndpoints/institution')
+const getItem = require('./getItem')
 
 
 const getInstitution = async (accessToken) => {
@@ -12,4 +12,4 @@ const getInstitution = async (accessToken) => {
 }
 
 
-module.exports = { getInstitution }
+module.exports = getInstitution

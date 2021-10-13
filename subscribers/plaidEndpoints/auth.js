@@ -7,4 +7,4 @@ const getItemBankData = async (accessToken) => {
 }
 
 
-module.exports = { getItemBankData }
+module.exports = getItemBankData

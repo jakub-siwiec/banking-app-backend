@@ -1,4 +1,4 @@
-const { getAccessItem } = require('../subscribers/plaidEndpoints/item')
+const getAccessItem = require('../subscribers/plaidEndpoints/item')
 
 
 const getItem = async (accessToken) => {
@@ -7,4 +7,4 @@ const getItem = async (accessToken) => {
 }
 
 
-module.exports = { getItem }
+module.exports = getItem

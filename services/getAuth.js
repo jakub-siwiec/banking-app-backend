@@ -1,4 +1,4 @@
-const { getItemBankData } = require('../subscribers/plaidEndpoints/auth')
+const getItemBankData = require('../subscribers/plaidEndpoints/auth')
 
 
 const getAuth = async (accessToken) => {
@@ -12,4 +12,4 @@ const getAuth = async (accessToken) => {
 }
 
 
-module.exports = { getAuth }
+module.exports = getAuth

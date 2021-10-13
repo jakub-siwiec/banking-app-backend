@@ -8,4 +8,4 @@ const deleteAccessToken = async (accessToken) => {
 }
 
 
-module.exports = { deleteAccessToken }
+module.exports = deleteAccessToken 

@@ -7,4 +7,4 @@ const getItemAccounts = async (accessToken) => {
 }
 
 
-module.exports = { getItemAccounts }
+module.exports = getItemAccounts
