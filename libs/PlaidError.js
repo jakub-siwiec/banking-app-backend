@@ -3,10 +3,10 @@ class PlaidError extends Error {
         const displayMessage = plaidErrorJson.display_message ? plaidErrorJson.display_message : "Something went wrong with Plaid"
         const devMessage = plaidErrorJson.error_message ? plaidErrorJson.error_message : displayMessage
         
-        super(devMessage)
+        super(displayMessage)
 
         this._name = plaidErrorJson.name ? plaidErrorJson.name : "PlaidError"
-        this._displayMessage = displayMessage
+        this._devMessage = devMessage
         this._requestID = plaidErrorJson.request_id ? plaidErrorJson.request_id : null
         this._status = plaidErrorJson.status_code ? plaidErrorJson.status_code : 500
         this._code = plaidErrorJson.error_code ? plaidErrorJson.error_code : "PLAID_ERROR"
@@ -52,7 +52,7 @@ class PlaidError extends Error {
         res.send({
             "name": this._name,
             "requestID": this._requestID,
-            "message": this._displayMessage,
+            "message": this.message,
             "code": this._code,
             "type": this._type,
             "suggestedAction": this._suggestedAction,
