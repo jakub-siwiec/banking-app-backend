@@ -1,6 +1,6 @@
 const { bearerTokenExtractor } = require('../libs/bearerTokenExtractor')
 
-const TokenError = require('../libs/TokenError')
+const TokenError = require('../libs/errors/TokenError')
 
 
 const bearerTokenHandler = (req, res, next) => {

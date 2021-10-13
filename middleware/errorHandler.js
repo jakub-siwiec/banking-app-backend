@@ -1,5 +1,6 @@
-const ProgrammingCustomError = require('../libs/ProgrammingCustomError')
-const PlaidError = require('../libs/PlaidError')
+const PlaidError = require('../libs/errors/PlaidError')
+const ProgrammingCustomError = require('../libs/errors/ProgrammingCustomError')
+
 
 const errorHandler = (err, req, res, next) => {
     try {
@@ -15,5 +16,6 @@ const errorHandler = (err, req, res, next) => {
         programmingCustomError.apiResponse(res)
     }
 }   
+
 
 module.exports = errorHandler

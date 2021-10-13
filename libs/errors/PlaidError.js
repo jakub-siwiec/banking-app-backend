@@ -19,10 +19,6 @@ class PlaidError extends Error {
         return this._name
     }
 
-    get diplayMessage() {
-        return this._displayMessage
-    }
-
     get requestID() {
         return this._requestID
     }
@@ -60,5 +56,6 @@ class PlaidError extends Error {
         })
     }
 }
+
 
 module.exports = PlaidError
