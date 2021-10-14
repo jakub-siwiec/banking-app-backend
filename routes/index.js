@@ -99,7 +99,8 @@ router.get('/transactions/:accountId',
     bearerTokenHandler,
     async (req, res, next) => {
         try {
-            const accountTransactions = await getTransactions(res.locals.accessToken, '2018-11-09', '2021-09-07', req.params.accountId)
+            console.log(req.query)
+            const accountTransactions = await getTransactions(res.locals.accessToken, req.query, req.params.accountId)
             res.send(accountTransactions)
         } catch (error) {
             next(error)
