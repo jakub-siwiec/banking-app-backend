@@ -1,11 +1,11 @@
-class TokenError extends Error {
-    constructor() {        
-        super("No token received")
+class OperationalCustomError extends Error {
+    constructor(status, name, code, type, message) {        
+        super(message)
 
-        this._name = "TokenError"
-        this._status = 401
-        this._code = "ERR_NO_TOKEN"
-        this._type = "INVALID_REQUEST"
+        this._name = name
+        this._status = status
+        this._code = code
+        this._type = type
     }
 
     get name() {
@@ -36,4 +36,4 @@ class TokenError extends Error {
 }
 
 
-module.exports = TokenError
+module.exports = OperationalCustomError
