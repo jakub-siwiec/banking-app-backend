@@ -3,4 +3,4 @@ const bearerTokenExtractor = (fullAuthorizationHeader) => {
 }
 
 
-module.exports = { bearerTokenExtractor }
+module.exports = bearerTokenExtractor

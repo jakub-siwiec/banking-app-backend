@@ -1,4 +1,4 @@
-const { bearerTokenExtractor } = require('../libs/bearerTokenExtractor')
+const bearerTokenExtractor = require('../libs/bearerTokenExtractor')
 
 const OperationalCustomError = require('../libs/errors/OperationalCustomError')
 
