@@ -1,8 +1,13 @@
 const plaidClient = require('../../libs/PlaidClient')
 
 
-const getAccountTransactions = async (accessToken, startDate, endDate) => {
-    const transactions = await plaidClient.getTransactions(accessToken, startDate, endDate, {})
+const getAccountTransactions = async (accessToken, startDate, endDate, accountId) => {
+    const optionsTransaction = {
+        account_ids: [accountId]
+    }
+
+    const transactions = await plaidClient.getTransactions(accessToken, startDate, endDate, optionsTransaction)
+
     return transactions
 }
 
