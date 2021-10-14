@@ -8,8 +8,7 @@ const bearerTokenHandler = (req, res, next) => {
         res.locals.accessToken = bearerTokenExtractor(req.headers.authorization)
         next()
     } else {
-        const tokenError = new OperationalCustomError(401, 'TokenError', 'ERR_NO_TOKEN', 'INVALID_REQUEST', 'No token received')
-        tokenError.apiRequest(res)
+        throw new OperationalCustomError(401, 'TokenError', 'ERR_NO_TOKEN', 'INVALID_REQUEST', 'No token received')
     }
 }
 

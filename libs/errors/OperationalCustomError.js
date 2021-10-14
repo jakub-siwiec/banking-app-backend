@@ -1,8 +1,9 @@
 class OperationalCustomError extends Error {
-    constructor(status, name, code, type, message) {        
+    constructor(status, displayName, code, type, message) {        
         super(message)
 
-        this._name = name
+        this._name = "OperationalCustomError"
+        this._displayName = displayName
         this._status = status
         this._code = code
         this._type = type
@@ -24,10 +25,10 @@ class OperationalCustomError extends Error {
         return this._type
     }
 
-    apiRequest(res) {
+    apiResponse(res) {
         res.status(this._status)
         res.send({
-            "name": this._name,
+            "name": this._displayName,
             "message": this.message,
             "code": this._code,
             "type": this._type
