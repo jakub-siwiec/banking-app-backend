@@ -4,7 +4,6 @@ const ProgrammingCustomError = require('../libs/errors/ProgrammingCustomError')
 
 const errorHandler = (err, req, res, next) => {
     try {
-        console.log(err.name)
         if (err.name === 'PlaidError') {
             const plaidError = new PlaidError(err)
             plaidError.apiResponse(res)
